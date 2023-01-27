@@ -1,23 +1,41 @@
-nano prog.c 
-		
-		#include<stdio.h>
-		int main(){
-			char text[50];
-			printf("enter name:");
-			scanf("%s",text);
-			printf("your enter name is :%s\n",text);
-	}
-	
-nano Dockerfile
+sudo apt update -y
 
+sudo apt install docker.io -y
+
+sudo docker login
+
+#sudo docker images
+
+#sudo docker ps -a
+
+#sudo mkdir t1 t2
+
+sudo docker run hello-world
+
+sudo touch prog.c
+
+#nano prog.c 
+
+sudo sh -c ' echo "#include<stdio.h> \
+int main(){
+char text[50];
+printf("enter name:");
+scanf("%s",text);
+printf("your enter name is :%s\n",text);
+} " > prog.c '
+
+	
+sudo touch Dockerfile
+
+sudo sh -c ' echo " \
 FROM gcc
 COPY . exec
 WORKDIR exec
 RUN gcc -o exec prog.c
-CMD ["./exec"]
+CMD ["./exec"] " > Dockerfile '
 
 sudo docker build -t "cprog" .
 
-sudo docker images 
+#sudo docker images 
 
 sudo docker run -it --rm --name t2 cprog
