@@ -1,0 +1,39 @@
+sudo apt update -y
+
+sudo apt install docker.io -y
+
+sudo docker login
+
+#sudo docker images
+
+#sudo docker ps -a
+
+sudo mkdir t1 t2
+
+sudo docker run hello-world
+
+cd t1
+
+sudo touch index.html 
+
+sudo sh -c ' echo "<html> \
+<body> \
+	<h1> this is 1st part o docker </h1>
+</body>
+</html> " > index.html '
+
+
+sudo touch Dockerfile
+
+sudo sh -c ' echo "FROM ubuntu \
+RUN apt update -y \
+RUN apt install apache2 apache2-utils -y \
+ADD index.html /var/www/html \
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"] " > Dockerfile '
+
+sudo docker build -t "web5" .
+
+#sudo docker images 
+
+sudo docker run -d --name web5 -p 8080:80 web5
