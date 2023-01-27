@@ -25,11 +25,11 @@ sudo sh -c ' echo "<html> \
 
 sudo touch Dockerfile
 
-sudo sh -c ' echo "FROM ubuntu \
-RUN apt update -y \
-RUN apt install apache2 apache2-utils -y \
-ADD index.html /var/www/html \
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
+sudo sh -c ' echo "FROM ubuntu \n\
+RUN apt update -y \n\
+RUN apt install apache2 apache2-utils -y \n\
+ADD index.html /var/www/html \n\
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \n\
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"] " > Dockerfile '
 
 sudo docker build -t "web5" .
