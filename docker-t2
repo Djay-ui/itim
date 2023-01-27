@@ -16,22 +16,22 @@ sudo touch prog.c
 
 #nano prog.c 
 
-sudo sh -c ' echo "#include<stdio.h> \
-int main(){
-char text[50];
-printf("enter name:");
-scanf("%s",text);
-printf("your enter name is :%s\n",text);
+sudo sh -c ' echo "#include<stdio.h> \n\
+int main(){ \n\
+char text[50]; \n\
+printf("enter name:"); \n\
+scanf("%s",text); \n\
+printf("your enter name is :%s\n",text); \n\
 } " > prog.c '
 
 	
 sudo touch Dockerfile
 
-sudo sh -c ' echo " \
-FROM gcc
-COPY . exec
-WORKDIR exec
-RUN gcc -o exec prog.c
+sudo sh -c ' echo " \n\
+FROM gcc \n\
+COPY . exec \n\
+WORKDIR exec \n\
+RUN gcc -o exec prog.c \n\
 CMD ["./exec"] " > Dockerfile '
 
 sudo docker build -t "cprog" .
