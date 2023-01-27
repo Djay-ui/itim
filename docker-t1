@@ -8,11 +8,11 @@ sudo docker login
 
 #sudo docker ps -a
 
-sudo mkdir t1 t2
+#sudo mkdir t1 t2
 
 sudo docker run hello-world
 
-cd t1
+#cd t1
 
 sudo touch index.html 
 
