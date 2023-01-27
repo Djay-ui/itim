@@ -1,0 +1,3 @@
+sudo docker tag web dhananjaytupe748/abc:new
+sudo docker push dhananjaytupe748/abc:new
+sudo docker pull dhananjaytupe748/abc:new
