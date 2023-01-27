@@ -1,0 +1,23 @@
+nano prog.c 
+		
+		#include<stdio.h>
+		int main(){
+			char text[50];
+			printf("enter name:");
+			scanf("%s",text);
+			printf("your enter name is :%s\n",text);
+	}
+	
+nano Dockerfile
+
+FROM gcc
+COPY . exec
+WORKDIR exec
+RUN gcc -o exec prog.c
+CMD ["./exec"]
+
+sudo docker build -t "cprog" .
+
+sudo docker images 
+
+sudo docker run -it --rm --name t2 cprog
