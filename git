@@ -1,0 +1,26 @@
+sudo apt install git
+
+mkdir abc
+
+cd abc 
+
+git init
+
+git remote add orign "<shh link of repo>"
+
+ssh-keygen 
+
+#copy paste public key in github
+
+touch something.py
+
+git add .
+
+git commit -m "file added"
+
+git pull origin master
+
+git push origin master
+
+# if push isnt working try 
+#git push --force origin master
